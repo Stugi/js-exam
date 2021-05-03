@@ -1,0 +1,86 @@
+@import "style.css";
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form .panel{
+  display: flex;
+  flex-direction: row;
+}
+
+form>div:last-child{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+form input[type="text"],
+form input[type="date"],
+form textarea{
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+form input[type="submit"] {
+  padding: 10px 30px;
+  margin: auto 10px;
+  background-color: #1e90ff;
+  border: 1px solid #ddd;
+  color: white;
+  cursor: pointer;
+
+}
+
+form input[type="submit"]:hover {
+  background-color: #62c205;
+}
+form input[type="reset"] {
+  padding: 10px 20px;
+  margin: auto 10px;
+  background-color: lightgrey;
+  border: 1px solid #cbcbcb;
+  color: white;
+  cursor: pointer;
+}
+
+form input[type="reset"]:hover {
+  background-color: red;
+}
+
+a.add-user {
+  /* margin: auto 10px; */
+  /* border: 1px solid #ddd; */
+  cursor: pointer;
+  text-decoration: none;
+  background-color: #E7E9EB;
+  color: black;
+  border: 1px solid #ccc;
+}
+
+a.add-user:link, a.add-user:visited {
+  background-color: #E7E9EB;
+  color: black;
+  border: 2px solid #ccc;
+  padding: 5px 20px 5px 40px;
+  text-align: center;
+  text-decoration: none;
+  /* display: inline-block; */
+}
+
+a.add-user:hover, a.add-user:active {
+  background-color: #cbcbcb;
+}
+
+.panel-add-user{
+  position: relative;
+}
+.panel-add-user a span{
+  position: absolute;
+  left: 11px;
+  bottom: -1.5px;
+}

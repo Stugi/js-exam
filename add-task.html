@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Все задачи</title>
+    <meta name="author" content="Arina">
+    <meta name="keywords" content="tasks, createTask">
+    <meta name="description" content="create task">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/add-task.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="#" class="current">Создание задачи</a>
+        <a href="all-task.html">Все задачи</a>
+      </nav>
+    </header>
+    <main>
+      <h2>Добавление задачи</h2>
+      <form class="form" name="form-add-task">
+        <div class="panel">
+          <label class = "col-3" for="title">Название задачи</label>
+          <input class = "col-9" type="text" name="title" id="title">
+          <span id="error-title"></span>
+        </div>
+        <div class="panel">
+          <label class = "col-3" for="description">Описание задачи</label>
+          <textarea class = "col-9" name="description" rows="8" cols="" id="description"></textarea>
+          <span id="error-description"></span>
+        </div>
+        <div class="panel">
+          <label  class = "col-3" for="date">Срок выполнения задачи</label>
+          <input class = "" type="date" name="date" id="date">
+          <span id="error-date"></span>
+        </div>
+        <div class="panel-add-user">
+          <!-- <span class="material-icons">person_add</span> -->
+          <a href="#" id="link-add-user" class="add-user"><span class="material-icons">person_add</span>Добавить участника</a>
+        </div>
+        <div class="">
+          <input type="submit" name="create" value="Создать задачу">
+          <input type="reset" name="reset" value="Очистить поля">
+        </div>
+      </form>
+    </main>
+    <script src="js/add-task.js">
+    </script>
+  </body>
+</html>
