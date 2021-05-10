@@ -18,12 +18,26 @@ form>div:last-child{
 
 form input[type="text"],
 form input[type="date"],
-form textarea{
+form textarea,
+select{
   vertical-align: middle;
   margin: 5px 10px 5px 0;
   padding: 10px;
   background-color: #fff;
   border: 1px solid #ddd;
+  display:block;
+}
+
+form input[type="text"],
+form textarea
+{
+  width: 100%;
+}
+form span
+{
+  display: block;
+  color: transparent;
+  font-size:small;
 }
 
 form input[type="submit"] {
@@ -53,7 +67,6 @@ form input[type="reset"]:hover {
 }
 
 a.add-user {
-  /* margin: auto 10px; */
   /* border: 1px solid #ddd; */
   cursor: pointer;
   text-decoration: none;

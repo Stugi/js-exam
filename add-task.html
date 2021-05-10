@@ -19,29 +19,41 @@
     </header>
     <main>
       <h2>Добавление задачи</h2>
-      <form class="form" name="form-add-task">
+      <form class="form" name="form-add-task" id="d1">
         <div class="panel">
           <label class = "col-3" for="title">Название задачи</label>
-          <input class = "col-9" type="text" name="title" id="title">
-          <span id="error-title"></span>
+          <div class="col-9">
+            <input type="text" name="title" id="title">
+            <span id="error-title">''</span>
+          </div>
         </div>
         <div class="panel">
           <label class = "col-3" for="description">Описание задачи</label>
-          <textarea class = "col-9" name="description" rows="8" cols="" id="description"></textarea>
-          <span id="error-description"></span>
+          <div class = "col-9">
+            <textarea  name="description" rows="8" cols="" id="description"></textarea>
+            <span id="error-description">''</span>
+          </div>
         </div>
         <div class="panel">
           <label  class = "col-3" for="date">Срок выполнения задачи</label>
-          <input class = "" type="date" name="date" id="date">
-          <span id="error-date"></span>
+          <div class="">
+            <input class = "" type="date" name="date" id="date">
+            <span id="error-date">''</span>
+          </div>
         </div>
+        <div class="separator"></div>
         <div class="panel-add-user">
           <!-- <span class="material-icons">person_add</span> -->
-          <a href="#" id="link-add-user" class="add-user"><span class="material-icons">person_add</span>Добавить участника</a>
+          <a href="#" id="link-add-user" class="add-user">
+            <span class="material-icons">person_add</span>Добавить участника</a>
         </div>
+        <div class="separator"></div>
+        <div class="flex-row wrap" id="users">
+        </div>
+        <div class="separator"></div>
         <div class="">
           <input type="submit" name="create" value="Создать задачу">
-          <input type="reset" name="reset" value="Очистить поля">
+          <input type="reset" value="Очистить поля">
         </div>
       </form>
     </main>
