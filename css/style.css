@@ -12,7 +12,10 @@ nav{
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  position: -webkit-sticky;
+  position: sticky;
 }
+
 nav a{
   text-decoration: none;
   color: black;
@@ -27,4 +30,19 @@ nav a.current{
 .separator{
   width: 10px;
   height: 10px;
+}
+
+/* .spaser-header{
+  height: 35px;
+} */
+
+header{
+  position: sticky;
+  top: 0px;
+  background-color: white;
+  z-index: 100;
+}
+
+body{
+  margin: 0;
 }

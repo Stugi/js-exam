@@ -23,7 +23,7 @@
         <div class="panel">
           <label class = "col-3" for="title">Название задачи</label>
           <div class="col-9">
-            <input type="text" name="title" id="title">
+            <input type="text" name="title" id="title" autocomplete="off">
             <span id="error-title">''</span>
           </div>
         </div>
@@ -56,6 +56,12 @@
           <input type="reset" value="Очистить поля">
         </div>
       </form>
+      <div class="popup hide" id="p_addtask">
+        <p>Задача создана</p>
+        <div class="icon-div">
+          <span class="material-icons">close</span>
+        </div>
+      </div>
     </main>
     <script src="js/add-task.js">
     </script>

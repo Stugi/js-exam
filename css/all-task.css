@@ -3,11 +3,11 @@
 .task-list div:nth-child(2n-1){
   background-color: #e5e5e5;
 }
-.task-list>div.focus{
-  background-color: blue;
+.task-list>div:hover{
+  background-color: #e1ecf4;
 }
 .task-list>div.selected{
-  background-color: orange;
+  background-color: #a0c7e4;
 }
 .task-list>div{
   padding: 0.83em;
@@ -19,7 +19,34 @@
   margin: 0;
 }
 
+footer input[type="button"]{
+  padding: 10px 30px;
+  margin-right: 10px;
+  margin-top: 4px;
+  float: right;
+  background-color: #1e90ff;
+  border: 1px solid #ddd;
+  color: white;
+  cursor: pointer;
+}
+footer {
+  height: 3em;
+  position: sticky;
+  bottom: 0;
+  background: white;
 
-.countries div:nth-child(2n){
-    flex-direction: row-reverse;
+}
+
+footer.hide{
+  transform: scale(0);
+}
+
+#status{
+  margin-left: 10px;
+  display: inline-block;
+}
+.center{
+    max-width: 900px;
+    margin: 0 auto;
+    border-top: 1px solid #1e90ff;
 }

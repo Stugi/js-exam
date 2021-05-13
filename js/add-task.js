@@ -10,6 +10,19 @@ function validateAll(){
   return getRules().every(rule=>rule.validate(rule));
 }
 
+document.querySelector(".icon-div").addEventListener("click", closePopup);
+function closePopup(){
+  this.parentElement.classList.add("hide");
+}
+function showPopup(popupId){
+  let popup = document.getElementById(popupId);
+  popup.classList.remove("hide");
+}
+
+function hidePopup(popup){
+    popup.classList.add("hide");
+}
+
 
 
 document.forms["form-add-task"].addEventListener("submit", submitForm);
@@ -17,7 +30,7 @@ function submitForm(event){
   event.preventDefault();
    if(validateAll()){
      saveTask(this.elements);
-
+     showPopup("p_addtask");
   } else{
   }
 }
@@ -59,9 +72,19 @@ function resetForm(event){
 
 function createUser(){
   let userDiv = document.createElement("div");
-  userDiv.style.display = "flex";
+  userDiv.setAttribute("name","panel-user");
   userDiv.innerHTML = `<select name="emp">${getOptions().join("")}</select>`;
+                       // <span class="material-icons icon-remove">close</span>`;
+  let deleteIcon = document.createElement("span");
+  deleteIcon.classList.add("material-icons","icon-remove");
+  deleteIcon.innerText="close";
+  deleteIcon.addEventListener("click", removeUser);
+  userDiv.append(deleteIcon);
   document.getElementById("users").append(userDiv);
+}
+
+function removeUser(event){
+  event.target, event.target.parentElement.remove();
 }
 
 function getOptions(){

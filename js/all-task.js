@@ -1,19 +1,22 @@
 'use strict';
 
-
-
 let main = document.querySelector("main");
-main.append(getHeader(),generateList());
+main.append(getHeader(), generateList());
+
+document.getElementById("remove-tasks").addEventListener("click",removeSelectedTasks);
+
 
 function generateList(){
   let sectionAllTask = document.createElement("section");
   sectionAllTask.classList.add("task-list");
-  if(!getDataTasks()){
+  let dataTasks = getDataTasks();
+  dataTasks.sort(sortTask);
+  if(!dataTasks){
     sectionAllTask.innerHTML = "<div><p>Задачи не найдены</p></div>";
   }
-  console.log(getDataTasks());
-  for(let task of getDataTasks()){
+  for(let task of dataTasks){
     let taskDiv = document.createElement("div");
+    taskDiv.addEventListener("click",selectItem);
 
     if(task.users instanceof Array)
     {   task.allusersList = [];
@@ -37,6 +40,28 @@ function addOneTask(where, task){
   `;
 }
 
+function selectItem(event){
+  this.classList.toggle("selected");
+  refreshFooter();
+}
+
+function removeSelectedTasks(){
+  Array.from(document.querySelectorAll(".selected")).forEach(
+    el=>{el.remove();}
+  );
+  refreshFooter();
+}
+
+function refreshFooter(){
+    let status = document.getElementById("status");
+    let count = document.querySelectorAll(".selected").length;
+    status.innerText = "Выбрано задач: "+count;
+    if(count>0){
+      document.querySelector("footer").classList.remove("hide");
+    } else {
+      document.querySelector("footer").classList.add("hide");
+    }
+}
 
 function getHeader(){
   let header = document.createElement("h2");
@@ -60,6 +85,13 @@ function getAllUserList(){
 function getDateString(date){
   let d = new Date(date);
   return (d.getDate()+"").padStart(2,'0')+"."+((d.getMonth()+1)+"").padStart(2,'0')+"."+d.getFullYear();
+}
+
+function sortTask({date:d1},{date:d2}){
+console.log(d1,d2);
+let date1 = new Date(d1);
+let date2 = new Date(d2);
+ return date1.getTime()-date2.getTime();
 }
 
 // let taskstest =[

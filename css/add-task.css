@@ -5,7 +5,7 @@ form {
   flex-direction: column;
 }
 
-form .panel{
+.panel{
   display: flex;
   flex-direction: row;
 }
@@ -47,7 +47,6 @@ form input[type="submit"] {
   border: 1px solid #ddd;
   color: white;
   cursor: pointer;
-
 }
 
 form input[type="submit"]:hover {
@@ -96,4 +95,52 @@ a.add-user:hover, a.add-user:active {
   position: absolute;
   left: 11px;
   bottom: -1.5px;
+}
+
+#p_addtask{
+    position: fixed;
+    top: 65px;
+    left: 1%;
+    border: 1px solid #a0c7e4;
+    background-color: #e1ecf4;
+    width:98%;
+    padding: 10px 30px;
+}
+
+.icon-div{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 0.3em;
+}
+.icon-div:hover{
+  cursor: pointer;
+  color: #1e90ff;
+}
+
+#p_addtask.hide{
+  transform: scale(0);
+}
+
+#p_addtask {
+    transition: opacity 2s ease;
+}
+
+.icon-remove{
+  color: black;
+  display: block;
+}
+.icon-remove{
+  color: black;
+}
+.icon-remove:hover{
+  cursor: pointer;
+  color: #1e90ff;
+}
+div[name="panel-user"]{
+  display: flex;
+  align-items: center;
+  margin-right: 1em;
 }
