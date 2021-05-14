@@ -9,13 +9,17 @@ document.getElementById("remove-tasks").addEventListener("click",removeSelectedT
 function generateList(){
   let sectionAllTask = document.createElement("section");
   sectionAllTask.classList.add("task-list");
+
   let dataTasks = getDataTasks();
-  dataTasks.sort(sortTask);
-  if(!dataTasks){
-    sectionAllTask.innerHTML = "<div><p>Задачи не найдены</p></div>";
+
+  if(!dataTasks || dataTasks.length==0){
+    sectionAllTask.innerHTML = "<p>Задачи не найдены</p>";
+  } else {
+    dataTasks.sort(sortTask);
   }
   for(let task of dataTasks){
     let taskDiv = document.createElement("div");
+    taskDiv.setAttribute("data-id",task.id);
     taskDiv.addEventListener("click",selectItem);
 
     if(task.users instanceof Array)
@@ -46,10 +50,23 @@ function selectItem(event){
 }
 
 function removeSelectedTasks(){
+
+  let rowkeys = [];
+
   Array.from(document.querySelectorAll(".selected")).forEach(
-    el=>{el.remove();}
-  );
+     el=>{rowkeys.push(parseInt(el.dataset.id));}
+   );
+
+  let newtask = getDataTasks().filter(el=>!rowkeys.includes(el.id));
+  localStorage.setItem("tasks", JSON.stringify(newtask));
+
+  executeTasks();
   refreshFooter();
+}
+
+function executeTasks(){
+  document.querySelector(".task-list").remove();
+  document.querySelector("main").append(generateList());
 }
 
 function refreshFooter(){

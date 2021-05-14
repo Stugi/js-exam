@@ -29,12 +29,15 @@ footer input[type="button"]{
   color: white;
   cursor: pointer;
 }
+footer input[type="button"]:hover{
+  background-color: red;
+}
 footer {
   height: 3em;
   position: sticky;
   bottom: 0;
   background: white;
-
+  font-weight: bold;
 }
 
 footer.hide{

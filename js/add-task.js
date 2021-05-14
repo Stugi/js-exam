@@ -48,8 +48,7 @@ function saveTask({title, description, date, emp}){
       option=>{if(option.selected) users.push(option.value);}
     );
   }
-
-  tasks.push({"title":title.value, "description":description.value, "date":date.value, "users":users});
+  tasks.push({"title":title.value, "description":description.value, "date":date.value, "users":users, "id":generateId()});
   let storage = localStorage;
   storage.setItem("tasks", JSON.stringify(tasks));
 }
@@ -58,6 +57,13 @@ function getArrayFromStorage(key){
   let storage = localStorage;
   let arr = JSON.parse(storage.getItem(key));
   return arr?arr:new Array();
+}
+
+function generateId(){
+  let id = localStorage.getItem("idTask");
+  id = id?(parseInt(id)+1):1;
+  localStorage.setItem("idTask", id);
+  return id;
 }
 
 document.forms["form-add-task"].addEventListener("reset", resetForm);
