@@ -5,7 +5,6 @@ main.append(getHeader(), generateList());
 
 document.getElementById("remove-tasks").addEventListener("click",removeSelectedTasks);
 
-
 function generateList(){
   let sectionAllTask = document.createElement("section");
   sectionAllTask.classList.add("task-list");
@@ -105,7 +104,6 @@ function getDateString(date){
 }
 
 function sortTask({date:d1},{date:d2}){
-console.log(d1,d2);
 let date1 = new Date(d1);
 let date2 = new Date(d2);
  return date1.getTime()-date2.getTime();
